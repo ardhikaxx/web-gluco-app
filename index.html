@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GlucoWise - Manajemen dan Edukasi Diabetes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1A998E;
+            --primary-light: #E0F2F1;
+            --primary-dark: #0D6E65;
+            --secondary-color: #FFA630;
+            --dark-color: #2D3142;
+            --light-color: #F7F7FF;
+            --gray-color: #E8E9EB;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .navbar-brand {
+            font-family: 'Darumadrop One', cursive;
+            color: var(--dark-color);
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            margin-top: -10px;
+            font-size: 2.2rem;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-color) !important;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-toggler-icon {
+            background-image: none;
+            position: relative;
+            width: 24px;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler-icon::before,
+        .navbar-toggler-icon::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggler-icon::before {
+            transform: translateY(-8px);
+        }
+
+        .navbar-toggler-icon::after {
+            transform: translateY(8px);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+            background-color: transparent;
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+            transform: rotate(45deg);
+        }
+
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+            transform: rotate(-45deg);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-light) 0%, white 100%);
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background-color: rgba(26, 153, 142, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background-color: rgba(26, 153, 142, 0.05);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--dark-color);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .hero-img {
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+            max-width: 80%;
+            animation: float 6s ease-in-out infinite;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(26, 153, 142, 0.2);
+        }
+
+        .btn-primary:active {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(26, 153, 142, 0.2);
+        }
+
+        .btn-primary:focus {
+            box-shadow: none;
+        }
+
+        .btn-primary:not(:disabled):not(.disabled):active {
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(26, 153, 142, 0.2);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(26, 153, 142, 0.2);
+        }
+
+        .btn-outline-primary:active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(26, 153, 142, 0.2);
+        }
+
+        .btn-outline-primary:focus {
+            box-shadow: none;
+        }
+
+        .btn-outline-primary:not(:disabled):not(.disabled):active {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 10px rgba(26, 153, 142, 0.2);
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            font-size: 2.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .bg-light {
+            background-color: var(--light-color) !important;
+        }
+
+        /* Card Styles */
+        .card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-title {
+            font-family: 'Darumadrop One', cursive;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .card-text {
+            color: #666;
+        }
+
+        /* Team Card Styles */
+        .team-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 30px 20px;
+            background-color: white;
+            height: 100%;
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid var(--primary-light);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .team-card:hover img {
+            border-color: var(--primary-color);
+        }
+
+        .team-card h5 {
+            font-family: 'Darumadrop One', cursive;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .team-card p {
+            color: #666;
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+            margin: 0 5px;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Feature List */
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .feature-list li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--primary-color);
+        }
+
+        /* CSS untuk Card Features yang Diperbarui */
+        .feature-card {
+            border: none;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            background: white;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(26, 153, 142, 0.15);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            z-index: 2;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-light) 0%, white 100%);
+            box-shadow: 0 10px 20px rgba(26, 153, 142, 0.1);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1);
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+        }
+
+        .feature-card:hover .feature-icon i {
+            color: white;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-logo {
+            font-family: 'Darumadrop One', cursive;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .footer-links h5 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 0 60px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 4rem;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .btn-primary,
+            .btn-outline-primary {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Animations */
+        .animate-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .animate-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .animate-delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand align-items-center d-flex" href="#">GlucoWise</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://glucozia-ai.vercel.app/" target="_blank">Glucozia AI</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Fitur</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Tampilan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#team">Tim</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary" href="#download">Unduh Aplikasi</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="row align-items-center flex-column-reverse flex-lg-row">
+                <div class="col-lg-6 text-center text-lg-start d-flex flex-column hero-content">
+                    <h1 class="animate__animated animate__fadeInDown animate__delay-1s">GlucoWise</h1>
+                    <p class="animate__animated animate__fadeIn animate__delay-1s">Aplikasi Manajemen Data dan Chat Bot
+                        Edukasi Diabetes berbasis Website dan Mobile.</p>
+                    <div
+                        class="d-flex align-items-center justify-content-lg-start justify-content-md-center justify-content-center gap-3 animate__animated animate__fadeIn animate__delay-2s">
+                        <a href="#download" class="btn btn-primary">
+                            <i class="fas fa-download me-2"></i> Unduh Sekarang
+                        </a>
+                        <a href="#features" class="btn btn-outline-primary">
+                            <i class="fas fa-info-circle me-2"></i> Pelajari Lebih Lanjut
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center animate__animated animate__fadeIn animate__delay-1s">
+                    <img src="./assets/app.png" alt="GlucoWise App" class="hero-img" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section class="section" id="features">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">Fitur Unggulan</h2>
+            <div class="row g-4">
+                <div class="col-md-4 animate__animated animate__fadeInUp animate-delay-1">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="icon-box mb-4"
+                                style="background-color: var(--primary-light); width: 80px; height: 80px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-clipboard-check fa-2x" style="color: var(--primary-color);"></i>
+                            </div>
+                            <h5 class="card-title">Screening Diabetes</h5>
+                            <p class="card-text">
+                                Kenali risiko diabetes dengan menjawab pertanyaan faktor risiko. Hasilnya akan
+                                dikategorikan sebagai <strong>rendah</strong>, <strong>sedang</strong>, atau
+                                <strong>tinggi</strong> berdasarkan skor poin.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate__animated animate__fadeInUp animate-delay-2">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="icon-box mb-4"
+                                style="background-color: var(--primary-light); width: 80px; height: 80px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
+                                <i class="fas fa-stethoscope fa-2x" style="color: var(--primary-color);"></i>
+                            </div>
+                            <h5 class="card-title">GlucoCheck</h5>
+                            <p class="card-text">
+                                Pantau risiko diabetes bulanan dengan input data kesehatan (riwayat keluarga, gula
+                                darah, BMI, dll.) dan dapatkan prediksi risiko beserta riwayat pemantauan.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate__animated animate__fadeInUp animate-delay-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <div class="icon-box mb-4"
+                                style="background-color: var(--primary-light); width: 80px; height: 80px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;">
+                                <img src="./assets/glucozia.png" class="img-fluid w-50" alt="Glucozia AI Icon">
+                            </div>
+                            <h5 class="card-title">Glucozia AI</h5>
+                            <p class="card-text">
+                                Asisten AI cerdas yang memberikan panduan personal diabetes, analisis kesehatan, dan
+                                rekomendasi nutrisi melalui chat interaktif 24/7.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section bg-light" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 animate__animated animate__fadeIn">
+                    <img src="./assets/app.png" alt="GlucoWise App" class="img-fluid">
+                </div>
+                <div class="col-lg-6 animate__animated animate__fadeIn">
+                    <h2 class="mb-4">Tentang GlucoWise</h2>
+                    <p class="mb-4">GlucoWise adalah platform kesehatan digital yang membantu remaja (16-22 tahun)
+                        memantau dan mencegah risiko diabetes. Dengan fitur unggulan seperti pemantauan glukosa,
+                        skrining risiko, dan asisten AI, kami memberikan solusi komprehensif untuk manajemen diabetes
+                        sehari-hari.</p>
+
+                    <h5 class="mt-4">Fitur Utama:</h5>
+                    <ul class="feature-list">
+                        <li><strong>GlucoCheck</strong> - Pemeriksaan risiko diabetes bulanan</li>
+                        <li><strong>Screening Diabetes</strong> - Assesmen risiko melalui kuesioner</li>
+                        <li><strong>Glucozia AI</strong> - Asisten virtual 24/7 untuk edukasi diabetes</li>
+                        <li><strong>Multi-Platform</strong> - Versi web untuk tenaga kesehatan (Bidan/Dokter) dan
+                            aplikasi mobile untuk pengguna umum</li>
+                    </ul>
+
+                    <p class="mt-3">Dikembangkan oleh tim ahli dengan pendekatan preventif, GlucoWise menjadi teman
+                        setia untuk gaya hidup lebih sehat.</p>
+                    <a href="#team" class="btn btn-primary mt-3">Kenali Tim Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI SECTION -->
+    <section class="section" id="gallery">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">Tampilan Aplikasi</h2>
+            <div class="row g-4">
+                <div class="col-md-4 animate__animated animate__fadeInUp animate-delay-1">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x300.png?text=Website+Dashboard" class="card-img-top"
+                            alt="Web View">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Dashboard Website</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate__animated animate__fadeInUp animate-delay-2">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x300.png?text=Mobile+Reminder" class="card-img-top"
+                            alt="Mobile Reminder">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Pengingat Mobile</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 animate__animated animate__fadeInUp animate-delay-3">
+                    <div class="card">
+                        <img src="https://via.placeholder.com/400x300.png?text=Chatbot+Edukasi" class="card-img-top"
+                            alt="Chatbot">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Chatbot Edukasi</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section position-relative overflow-hidden" id="download" style="background-color: var(--light-color);">
+        <div class="position-absolute w-100 h-100" style="top: 0; left: 0; z-index: 0;">
+            <div class="position-absolute rounded-circle" style="width: 300px; height: 300px; background: var(--primary-light); top: -100px; right: -100px;"></div>
+            <div class="position-absolute rounded-circle" style="width: 200px; height: 200px; background: var(--primary-light); bottom: -50px; left: -50px;"></div>
+            <div style="position: absolute; top: 20%; left: 10%; opacity: 0.08;">
+                <i class="fas fa-heartbeat" style="font-size: 3rem; color: var(--primary-color);"></i>
+            </div>
+            <div style="position: absolute; bottom: 15%; right: 15%; opacity: 0.08;">
+                <i class="fas fa-stethoscope" style="font-size: 3rem; color: var(--primary-color);"></i>
+            </div>
+            <div style="position: absolute; width: 100%; height: 100%; background-image: radial-gradient(var(--gray-color) 1px, transparent 1px); background-size: 20px 20px;"></div>
+        </div>
+        
+        <div class="container position-relative" style="z-index: 1;">
+            <div class="row">
+                <div class="col-12 text-center animate__animated animate__fadeIn">
+                    <h2 class="mb-3 fw-bold" style="color: var(--dark-color);">Unduh Aplikasi</h2>
+                    <p class="mb-4 fs-5" style="color: var(--dark-color); opacity: 0.8;">GlucoWise tersedia dalam dua versi dengan hak akses berbeda:</p>
+                </div>
+            </div>
+            
+            <div class="row justify-content-center">
+                <!-- Versi Web -->
+                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                    <div class="download-card h-100" style="border-radius: 16px; border: 1px solid var(--gray-color); transition: all 0.3s ease; background: white;">
+                        <div class="p-4 h-100 d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-wrapper me-3" style="width: 48px; height: 48px; background: var(--primary-light); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-globe" style="color: var(--primary-color); font-size: 1.25rem;"></i>
+                                </div>
+                                <h5 class="mb-0 fw-bold" style="color: var(--dark-color); font-size: 1.1rem;">Versi Web</h5>
+                            </div>
+                            <p class="mb-4 flex-grow-1" style="color: var(--dark-color); opacity: 0.8; font-size: 0.95rem; line-height: 1.6;">Khusus untuk tenaga kesehatan (kader, bidan, dan dokter) untuk manajemen pasien.</p>
+                            <a href="#" class="btn btn-action w-100 py-2" style="background: var(--primary-light); color: var(--primary-color); border-radius: 10px; border: none; font-weight: 600; transition: all 0.3s ease;">
+                                <i class="fas fa-sign-in-alt me-2"></i> Akses Sekarang
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Versi Mobile -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="download-card h-100" style="border-radius: 16px; border: 1px solid var(--gray-color); transition: all 0.3s ease; background: white;">
+                        <div class="p-4 h-100 d-flex flex-column">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="icon-wrapper me-3" style="width: 48px; height: 48px; background: var(--primary-light); border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                                    <i class="fas fa-mobile-alt" style="color: var(--primary-color); font-size: 1.25rem;"></i>
+                                </div>
+                                <h5 class="mb-0 fw-bold" style="color: var(--dark-color); font-size: 1.1rem;">Versi Mobile</h5>
+                            </div>
+                            <p class="mb-4 flex-grow-1" style="color: var(--dark-color); opacity: 0.8; font-size: 0.95rem; line-height: 1.6;">Untuk umum - dapat digunakan oleh semua usia untuk pemantauan kesehatan personal.</p>
+                            <a href="#" class="btn btn-action w-100 py-2" style="background: var(--primary-light); color: var(--primary-color); border-radius: 10px; border: none; font-weight: 600; transition: all 0.3s ease;">
+                                <i class="fab fa-google-play me-2"></i> Unduh Sekarang
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional decorative elements -->
+            <div class="text-center mt-5">
+                <div class="d-inline-block px-4 py-2 rounded-pill" style="background-color: rgba(26, 153, 142, 0.1);">
+                    <small class="fw-bold" style="color: var(--dark-color); opacity: 0.9;">
+                        <i class="fas fa-shield-alt me-2" style="color: var(--primary-color);"></i> Aman dan Terjamin Keamanan Datanya
+                    </small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM SECTION -->
+    <section class="section" id="team">
+        <div class="container">
+            <h2 class="section-title animate__animated animate__fadeIn">Tim Pengembang</h2>
+            <div class="row justify-content-center">
+                <!-- Anggota Tim 1 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeInUp">
+                    <div class="team-card">
+                        <img src="./assets/dev/dhika.jpg" alt="Foto Tim" class="mx-auto mb-3">
+                        <h5>Yanuar Ardhika Rahmadhani Ubaidillah</h5>
+                        <p>NIM: E41220665</p>
+                        <p>Program Studi: Teknik Informatika</p>
+                        <span class="ig-username">
+                            <i class="fab fa-instagram me-1"></i> @ardhxkaa_
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Anggota Tim 2 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeInUp">
+                    <div class="team-card">
+                        <img src="./assets/dev/ariz.png"
+                            alt="Foto Tim" class="mx-auto mb-3">
+                        <h5>Ariz Saputra</h5>
+                        <p>NIM: E41220090</p>
+                        <p>Program Studi: Teknik Informatika</p>
+                        <span class="ig-username">
+                            <i class="fab fa-instagram me-1"></i> @arizsaputra_as
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Anggota Tim 3 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeInUp">
+                    <div class="team-card">
+                        <img src="./assets/dev/rafika.png"
+                            alt="Foto Tim" class="mx-auto mb-3">
+                        <h5>Rafika Dwi Shefira</h5>
+                        <p>NIM: E41220791</p>
+                        <p>Program Studi: Teknik Informatika</p>
+                        <span class="ig-username">
+                            <i class="fab fa-instagram me-1"></i> @_rafikadw
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Anggota Tim 4 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeInUp">
+                    <div class="team-card">
+                        <img src="./assets/dev/firman.png"
+                            alt="Foto Tim" class="mx-auto mb-3">
+                        <h5>Firmansyah Rachman P</h5>
+                        <p>NIM: E41220247</p>
+                        <p>Program Studi: Teknik Informatika</p>
+                        <span class="ig-username">
+                            <i class="fab fa-instagram me-1"></i> @firmansyahrp._
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Anggota Tim 5 -->
+                <div class="col-12 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeInUp">
+                    <div class="team-card">
+                        <img src="./assets/dev/insan.png"
+                            alt="Foto Tim" class="mx-auto mb-3">
+                        <h5>Insan Hidayah</h5>
+                        <p>NIM: E41220849</p>
+                        <p>Program Studi: Teknik Informatika</p>
+                        <span class="ig-username">
+                            <i class="fab fa-instagram me-1"></i> @insanhidayah
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-5 mb-lg-0">
+                    <a href="#" class="footer-logo text-decoration-none">GlucoWise</a>
+                    <p class="text-white">Aplikasi Manajemen Data dan Chat Bot Edukasi Diabetes berbasis Website dan
+                        Mobile.</p>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <div class="footer-links">
+                        <h5>Menu</h5>
+                        <ul>
+                            <li><a href="#home">Beranda</a></li>
+                            <li><a href="#features">Fitur</a></li>
+                            <li><a href="#gallery">Tampilan</a></li>
+                            <li><a href="#team">Tim</a></li>
+                            <li><a href="#download">Unduh</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <div class="footer-links">
+                        <h5>Dukungan</h5>
+                        <ul>
+                            <li><a href="#">Pusat Bantuan</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Kebijakan Privasi</a></li>
+                            <li><a href="#">Syarat & Ketentuan</a></li>
+                            <li><a href="#">Hubungi Kami</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <div class="footer-links">
+                        <h5>Kontak</h5>
+                        <ul class=" text-white">
+                            <li><i class="fas fa-map-marker-alt me-2"></i> Jl. Teknik Komputer No. 1, Surabaya</li>
+                            <li><i class="fas fa-phone me-2"></i>0859-3364-8537</li>
+                            <li><i class="fas fa-envelope me-2"></i> info@glucowise.com</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright text-center">
+                <p class="mb-0">© 2025 GlucoWise. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & Interaktif JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.animate__animated');
+
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+
+                if (elementPosition < screenPosition) {
+                    const animationClass = element.classList[1];
+                    element.classList.add(animationClass);
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+
+</html>
