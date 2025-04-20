@@ -210,6 +210,7 @@
             .navbar-brand {
                 font-size: 1.8rem;
             }
+
             .navbar-collapse {
                 position: fixed;
                 top: 0;
@@ -253,7 +254,7 @@
                 padding: 12px !important;
             }
         }
-        
+
         .btn-primary {
             background-color: var(--primary-color);
             border: none;
@@ -274,90 +275,244 @@
             transform: translateY(0);
         }
 
-        /* Hero Section */
         .hero {
             background: linear-gradient(135deg, var(--primary-light) 0%, white 100%);
-            padding: 120px 0 80px;
+            padding: 100px 0 60px;
             position: relative;
             overflow: hidden;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50px;
-            right: -50px;
-            width: 350px;
-            height: 350px;
-            background-color: rgba(26, 153, 142, 0.1);
-            border-radius: 50%;
-            z-index: 0;
-        }
-
+        .hero::before,
         .hero::after {
             content: '';
             position: absolute;
-            bottom: -100px;
-            left: -100px;
-            width: 450px;
-            height: 450px;
-            background-color: rgba(26, 153, 142, 0.05);
             border-radius: 50%;
             z-index: 0;
+            filter: blur(60px);
+            opacity: 0.6;
+        }
+
+        .hero::before {
+            top: -150px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .hero::after {
+            bottom: -150px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(26, 153, 142, 0.3) 0%, transparent 70%);
+            animation: float 10s ease-in-out infinite reverse;
         }
 
         .hero-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 4rem);
             color: var(--primary-color);
             margin-bottom: 1.5rem;
             line-height: 1.2;
+            font-weight: 700;
+            background: linear-gradient(to right, var(--primary-color), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeInUp 0.8s ease-out;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 2vw, 1.3rem);
             color: var(--dark-color);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             max-width: 600px;
+            line-height: 1.6;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.3s forwards;
+        }
+
+        .hero-buttons {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.6s forwards;
         }
 
         .hero-img {
-            margin-top: 20px;
-            max-width: 80%;
+            max-width: 100%;
+            height: auto;
+            transition: all 0.5s ease;
         }
 
         .hero-image {
             position: relative;
             z-index: 1;
             animation: float 6s ease-in-out infinite;
-            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
         .hero-image img {
-            transform: perspective(1000px) rotateY(-15deg);
+            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
             transition: all 0.5s ease;
+            filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+            border-radius: 20px;
         }
 
         .hero-image:hover img {
-            transform: perspective(1000px) rotateY(0deg);
-            transition: all 0.5s ease;
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+            filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.2));
         }
 
+        /* Logo slider styles */
+        .logo-slider-container {
+            margin-top: 60px;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .logo-slider-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.1), transparent);
+        }
+
+        .customer-logos .slide {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            padding: 0 15px;
+        }
+
+        .customer-logos img {
+            max-height: 150px;
+            width: 100%;
+            filter: grayscale(100%) brightness(0.8);
+            opacity: 0.7;
+            transition: all 0.3s ease;
+        }
+
+        .customer-logos img:hover {
+            filter: grayscale(0%) brightness(1);
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* Animations */
         @keyframes float {
             0% {
                 transform: translateY(0px);
             }
 
             50% {
-                transform: translateY(-15px);
+                transform: translateY(-20px);
             }
 
             100% {
                 transform: translateY(0px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .hero {
+                padding: 80px 0 40px;
+                min-height: auto;
+            }
+
+            .hero::before,
+            .hero::after {
+                filter: blur(40px);
+            }
+
+            .hero-image img {
+                max-width: 80%;
+                margin: 40px auto 0;
+            }
+
+            .logo-slider-container {
+                margin-top: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                text-align: center;
+                padding: 60px 0 30px;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center !important;
+            }
+
+            .hero::before {
+                top: -100px;
+                right: -150px;
+                width: 300px;
+                height: 300px;
+            }
+
+            .hero::after {
+                bottom: -100px;
+                left: -150px;
+                width: 350px;
+                height: 350px;
+            }
+
+            .customer-logos img {
+                max-height: 100px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 15px !important;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .customer-logos img {
+                max-height: 80px;
             }
         }
 
@@ -962,34 +1117,35 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="row align-items-center flex-column-reverse flex-lg-row">
-                <div class="col-lg-6 text-center text-lg-start d-flex flex-column hero-content">
-                    <h1 class="mb-2">GlucoWise</h1>
-                    <p class="mb-4">Aplikasi Manajemen Data dan Chat Bot Edukasi Diabetes berbasis Website dan Mobile.
-                    </p>
-                    <div
-                        class="d-flex align-items-center justify-content-lg-start justify-content-md-center justify-content-center gap-3">
-                        <a href="#download" class="btn btn-primary">
+                <div class="col-lg-6 text-center text-lg-start hero-content">
+                    <h1 class="mb-3">GlucoWise</h1>
+                    <p class="mb-4">Aplikasi Manajemen Data dan Chat Bot Edukasi Diabetes berbasis Website dan Mobile
+                        yang membantu Anda mengelola kesehatan dengan lebih baik.</p>
+                    <div class="d-flex flex-wrap align-items-center gap-3 hero-buttons">
+                        <a href="#download" class="btn btn-primary btn-lg px-4 py-3">
                             <i class="fas fa-arrow-alt-circle-down me-2"></i> Lihat Aplikasi
                         </a>
-                        <a href="#features" class="btn btn-outline-primary">
+                        <a href="#features" class="btn btn-outline-primary btn-lg px-4 py-3">
                             <i class="fas fa-info-circle me-2"></i> Pelajari Lebih Lanjut
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center hero-image">
-                    <img src="./assets/app.png" alt="GlucoWise App" class="hero-img" />
+                    <img src="./assets/app.png" alt="GlucoWise App" class="hero-img" loading="lazy" />
                 </div>
             </div>
-            <div class="row d-lg-flex text-center mt-3">
+
+            <!-- Logo slider -->
+            <div class="logo-slider-container">
                 <div class="container">
-                    <section class="customer-logos slider">
-                        <div class="slide"><img src="./assets/./logo/logo-polije.png"></div>
-                        <div class="slide"><img src="./assets/./logo/logo-polije-1.png"></div>
-                        <div class="slide"><img src="./assets/./logo/logo-jti.png"></div>
-                        <div class="slide"><img src="./assets/./logo/logo-tif.png"></div>
-                        <div class="slide"><img src="./assets/./logo/logo-glucowise.png"></div>
-                        <div class="slide"><img src="./assets/./logo/logo-glucozia.png"></div>
-                    </section>
+                    <div class="customer-logos slider">
+                        <div class="slide"><img src="./assets/logo/logo-polije.png" alt="Polije Logo"></div>
+                        <div class="slide"><img src="./assets/logo/logo-polije-1.png" alt="Polije Logo"></div>
+                        <div class="slide"><img src="./assets/logo/logo-jti.png" alt="JTI Logo"></div>
+                        <div class="slide"><img src="./assets/logo/logo-tif.png" alt="TIF Logo"></div>
+                        <div class="slide"><img src="./assets/logo/logo-glucowise.png" alt="GlucoWise Logo"></div>
+                        <div class="slide"><img src="./assets/logo/logo-glucozia.png" alt="Glucozia Logo"></div>
+                    </div>
                 </div>
             </div>
         </div>
