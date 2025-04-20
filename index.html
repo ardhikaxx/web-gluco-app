@@ -291,25 +291,25 @@
             position: absolute;
             border-radius: 50%;
             z-index: 0;
-            filter: blur(60px);
+            filter: blur(70px);
             opacity: 0.6;
         }
 
         .hero::before {
             top: -150px;
             right: -100px;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--primary-color) 0%, transparent 70%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, var(--primary-color) 0%, rgba(26, 153, 142, 0.2));
             animation: float 8s ease-in-out infinite;
         }
 
         .hero::after {
             bottom: -150px;
             left: -100px;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(26, 153, 142, 0.3) 0%, transparent 70%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(26, 153, 142, 0.2));
             animation: float 10s ease-in-out infinite reverse;
         }
 
@@ -347,7 +347,8 @@
         }
 
         .hero-img {
-            max-width: 100%;
+            margin-top: 1.5rem;
+            max-width: 70%;
             height: auto;
             transition: all 0.5s ease;
         }
@@ -356,25 +357,17 @@
             position: relative;
             z-index: 1;
             animation: float 6s ease-in-out infinite;
-            transform-style: preserve-3d;
-            perspective: 1000px;
         }
 
         .hero-image img {
-            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
-            transition: all 0.5s ease;
             filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
             border-radius: 20px;
         }
 
-        .hero-image:hover img {
-            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
-            filter: drop-shadow(0 25px 40px rgba(0, 0, 0, 0.2));
-        }
-
         /* Logo slider styles */
         .logo-slider-container {
-            margin-top: 60px;
+            z-index: 1;
+            margin-top: 20px;
             padding: 20px 0;
             position: relative;
         }
@@ -399,15 +392,6 @@
         .customer-logos img {
             max-height: 150px;
             width: 100%;
-            filter: grayscale(100%) brightness(0.8);
-            opacity: 0.7;
-            transition: all 0.3s ease;
-        }
-
-        .customer-logos img:hover {
-            filter: grayscale(0%) brightness(1);
-            opacity: 1;
-            transform: scale(1.05);
         }
 
         /* Animations */
@@ -1152,7 +1136,7 @@
     </section>
 
     <!-- FEATURES SECTION -->
-    <section class="section" id="features">
+    <section class="section features" id="features">
         <div class="container">
             <h2 class="section-title animate__animated animate__fadeIn">Fitur Unggulan</h2>
             <div class="row g-4">
@@ -1211,44 +1195,116 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 animate__animated animate__fadeIn">
-                    <img src="./assets/app.png" alt="GlucoWise App" class="img-fluid">
+                    <img src="./assets/app.png" alt="GlucoWise App" class="img-fluid w-100">
                 </div>
                 <div class="col-lg-6 animate__animated animate__fadeIn">
                     <h2 class="mb-4">Tentang GlucoWise</h2>
-                    <p class="mb-4">GlucoWise adalah Aplikasi Manajemen Data dan Edukasi Diabetes berbasis website dan
-                        mobile. GlucoWise adalah solusi terbaik untuk mengelola data diabetes secara efektif dan
-                        efisien.</p>
-
-
-                    <div class="row">
-                        <div class="col-md-6 mb-4">
-                            <h5 class="mt-4">Fitur Website:</h5>
-                            <ul class="feature-list">
-                                <li><strong>Data Pengguna</strong> - Informasi identitas lengkap dan profil pengguna.
-                                </li>
-                                <li><strong>Data Kesehatan</strong> - Catatan lengkap kondisi kesehatan pengguna untuk
-                                    pemantauan berkala.</li>
-                                <li><strong>Rekam Medis</strong> - Menampilkan data pemeriksaan sebelumnya untuk
-                                    analisis tren kesehatan dan menentukan risiko diabetes.</li>
-                                <li><strong>Manajemen Screening</strong> - Merekam hasil tes risiko diabetes guna
-                                    deteksi dini dan mengelola screening diabetes.</li>
-                                <li><strong>Manajemen Edukasi</strong> - Mengelola informasi edukasi diabetes untuk
-                                    meningkatkan kesehatan dan pengetahuan.</li>
-                            </ul>
+                    <p class="mb-4">GlucoWise adalah Aplikasi Manajemen Data dan Edukasi Diabetes berbasis website dan mobile. GlucoWise adalah solusi terbaik untuk mengelola data diabetes secara efektif dan efisien.</p>
+                    <div class="accordion accordion-flush" id="featureAccordion">
+                        <!-- Website Features -->
+                        <div class="accordion-item mb-3 rounded-3 overflow-hidden border-0 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-3" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#websiteFeatures"
+                                    style="background-color: var(--primary-color); color: white;">
+                                    <i class="fas fa-globe me-3"></i> Fitur Website
+                                </button>
+                            </h2>
+                            <div id="websiteFeatures" class="accordion-collapse collapse"
+                                data-bs-parent="#featureAccordion">
+                                <div class="accordion-body bg-white">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item border-0 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <strong>Data Pengguna</strong> - Informasi identitas lengkap dan profil pengguna.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <strong>Data Kesehatan</strong> - Catatan lengkap kondisi kesehatan pengguna untuk pemantauan berkala.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <strong>Rekam Medis</strong> - Menampilkan data pemeriksaan sebelumnya untuk analisis tren kesehatan dan menentukan risiko diabetes.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <strong>Manajemen Screening</strong> - Merekam hasil tes risiko diabetes guna deteksi dini dan mengelola screening diabetes.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <strong>Manajemen Edukasi</strong> - Mengelola informasi edukasi diabetes untuk meningkatkan kesehatan dan pengetahuan.
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <h5 class="mt-4">Fitur Mobile:</h5>
-                            <ul class="feature-list">
-                                <li><strong>Screening Risiko Diabetes</strong> - Analisis data kesehatan untuk
-                                    mengetahui potensi risiko diabetes.</li>
-                                <li><strong>GlucoCheck</strong> - Pencatatan hasil pemeriksaan gula darah bulanan dan
-                                    faktor kesehatan lainnya.</li>
-                                <li><strong>Glucozia AI</strong> - Asisten virtual 24/7 untuk edukasi diabetes</li>
-                                <li><strong>GlucoCare</strong> - Pengingat minum obat untuk manajemen kesehatan bagi
-                                    penderita diabetes.</li>
-                                <li><strong>Edukasi Kesehatan</strong> - Materi interaktif untuk meningkatkan kesadaran
-                                    tentang diabetes berupa video dan artikel.</li>
-                            </ul>
+                    
+                        <!-- Mobile Features -->
+                        <div class="accordion-item rounded-3 overflow-hidden border-0 shadow-sm">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed rounded-3" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#mobileFeatures"
+                                    style="background-color: var(--primary-color); color: white;">
+                                    <i class="fas fa-mobile-alt me-3"></i> Fitur Mobile
+                                </button>
+                            </h2>
+                            <div id="mobileFeatures" class="accordion-collapse collapse"
+                                data-bs-parent="#featureAccordion">
+                                <div class="accordion-body bg-white">
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item border-0 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <strong>Screening Risiko Diabetes</strong> - Analisis data kesehatan untuk mengetahui potensi risiko diabetes.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <strong>GlucoCheck</strong> - Pencatatan hasil pemeriksaan gula darah bulanan dan faktor kesehatan lainnya.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <strong>Glucozia AI</strong> - Asisten virtual 24/7 untuk edukasi diabetes
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <strong>GlucoCare</strong> - Pengingat minum obat untuk manajemen kesehatan bagi penderita diabetes.
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item border-0 py-2">
+                                            <div class="d-flex align-items-center">
+                                                <div>
+                                                    <strong>Edukasi Kesehatan</strong> - Materi interaktif untuk meningkatkan kesadaran tentang diabetes berupa video dan artikel.
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
