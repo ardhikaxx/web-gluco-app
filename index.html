@@ -728,6 +728,54 @@
             background-color: var(--light-color) !important;
         }
 
+        /* Button Glow Effect */
+        .btn-glow {
+            position: relative;
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #1A998E 0%, #26C6B2 100%);
+            color: white;
+            font-weight: 500;
+            text-decoration: none;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 15px rgba(26, 153, 142, 0.3);
+            border: none;
+            z-index: 1;
+        }
+
+        .btn-glow-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn-glow-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #26C6B2 0%, #1A998E 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+            border-radius: 50px;
+        }
+
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(26, 153, 142, 0.4);
+        }
+
+        .btn-glow:hover .btn-glow-gradient {
+            opacity: 1;
+        }
+
+        .btn-glow:active {
+            transform: translateY(1px);
+        }
+
         /* Card Styles */
         .card {
             border: none;
@@ -1381,46 +1429,69 @@
         <div class="container">
             <h2 class="section-title animate__animated animate__fadeIn">Tampilan Aplikasi</h2>
             <div class="row g-4">
+                <!-- Card 1 - Web App -->
                 <div class="col-md-4 animate__animated animate__fadeInUp animate-delay-1">
-                    <div class="card">
+                    <div class="card h-100 border-0 shadow-sm">
                         <img src="./assets/web-glucowise.jpg" loading="lazy" class="card-img-top" alt="Web App">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center d-flex flex-column">
                             <h2 class="card-title">Aplikasi Website</h2>
-                            <div class="d-inline-block px-3 py-1 rounded-pill mb-2"
+                            <div class="mx-auto px-3 py-1 rounded-pill mb-3"
                                 style="background-color: rgba(26, 153, 142, 0.1);">
                                 <small class="fw-bold" style="color: var(--dark-color); opacity: 0.9;">
                                     <i class="fas fa-user-md me-2" style="color: #1A998E;"></i>Akses Tenaga Kesehatan
                                     (Bidan/Dokter)
                                 </small>
                             </div>
+                            <a href="#" class="btn-glow mt-auto align-self-center" onclick="showComingSoonAlert()">
+                                <span class="btn-glow-content">
+                                    <i class="fas fa-external-link-square-alt me-2"></i>Lihat Aplikasi
+                                </span>
+                                <span class="btn-glow-gradient"></span>
+                            </a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 2 - Mobile App -->
                 <div class="col-md-4 animate__animated animate__fadeInUp animate-delay-2">
-                    <div class="card">
+                    <div class="card h-100 border-0 shadow-sm">
                         <img src="./assets/mobile-glucowise.jpg" loading="lazy" class="card-img-top" alt="Mobile App">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center d-flex flex-column">
                             <h2 class="card-title">Aplikasi Mobile</h2>
-                            <div class="d-inline-block px-3 py-1 rounded-pill mb-2"
+                            <div class="mx-auto px-3 py-1 rounded-pill mb-3"
                                 style="background-color: rgba(26, 153, 142, 0.1);">
                                 <small class="fw-bold" style="color: var(--dark-color); opacity: 0.9;">
                                     <i class="fas fa-mobile-alt me-2" style="color: #1A998E;"></i>Akses Pengguna Umum
                                 </small>
                             </div>
+                            <a href="#" class="btn-glow mt-auto align-self-center" onclick="showComingSoonAlert()">
+                                <span class="btn-glow-content">
+                                    <i class="fas fa-external-link-square-alt me-2"></i>Lihat Aplikasi
+                                </span>
+                                <span class="btn-glow-gradient"></span>
+                            </a>
                         </div>
                     </div>
                 </div>
+
+                <!-- Card 3 - Chatbot -->
                 <div class="col-md-4 animate__animated animate__fadeInUp animate-delay-3">
-                    <div class="card">
+                    <div class="card h-100 border-0 shadow-sm">
                         <img src="./assets/web-glucozia.jpg" class="card-img-top" alt="Chatbot">
-                        <div class="card-body text-center">
+                        <div class="card-body text-center d-flex flex-column">
                             <h2 class="card-title">Glucozia AI</h2>
-                            <div class="d-inline-block px-3 py-1 rounded-pill mb-2"
+                            <div class="mx-auto px-3 py-1 rounded-pill mb-3"
                                 style="background-color: rgba(26, 153, 142, 0.1);">
                                 <small class="fw-bold" style="color: var(--dark-color); opacity: 0.9;">
-                                    <i class="fas fa-robot me-2" style="color: #1A998E;"></i>Akses Pengguna Umum
+                                    <i class="fas fa-brain me-2" style="color: #1A998E;"></i>Akses Pengguna Umum
                                 </small>
                             </div>
+                            <a href="https://glucozia-ai.vercel.app/" class="btn-glow mt-auto align-self-center">
+                                <span class="btn-glow-content">
+                                    <i class="fas fa-external-link-square-alt me-2"></i>Coba Sekarang
+                                </span>
+                                <span class="btn-glow-gradient"></span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -1651,6 +1722,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+        function showComingSoonAlert() {
+            Swal.fire({
+                title: 'Maaf!',
+                text: 'Halaman aplikasi ini belum dapat diakses saat ini. Silahkan coba lagi nanti.',
+                icon: 'info',
+                iconColor: '#1A998E',
+                confirmButtonText: '<i class="fas fa-check-circle me-2"></i>Mengerti',
+                confirmButtonColor: '#1A998E'
+            });
+            return false;
+        }
+        
         document.addEventListener('DOMContentLoaded', function () {
             // Tombol Akses Web
             document.getElementById('webAccessBtn').addEventListener('click', function (e) {
@@ -1663,6 +1746,7 @@
                     confirmButtonText: '<i class="fas fa-check-circle me-2"></i>Mengerti',
                     confirmButtonColor: '#1a998e'
                 });
+                return false;
             });
 
             // Tombol Unduh Mobile
@@ -1676,6 +1760,7 @@
                     confirmButtonText: '<i class="fas fa-check-circle me-2"></i>Mengerti',
                     confirmButtonColor: '#1a998e'
                 });
+                return false;
             });
         });
 
