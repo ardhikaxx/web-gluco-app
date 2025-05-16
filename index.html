@@ -11,7 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --primary-color: #1A998E;
@@ -1165,7 +1167,8 @@
             <div class="row align-items-center flex-column-reverse flex-lg-row">
                 <div class="col-lg-6 text-center text-lg-start hero-content">
                     <h1 class="mb-3">GlucoWise</h1>
-                    <p class="mb-4">Aplikasi Manajemen Data dan Asisten Virtual Edukasi Diabetes berbasis Website dan Mobile yang membantu Anda mengelola kesehatan dengan lebih baik.</p>
+                    <p class="mb-4">Aplikasi Manajemen Data dan Asisten Virtual Edukasi Diabetes berbasis Website dan
+                        Mobile yang membantu Anda mengelola kesehatan dengan lebih baik.</p>
                     <div class="d-flex flex-wrap align-items-center gap-3 hero-buttons">
                         <a href="#download" class="btn btn-primary btn-lg px-4 py-3">
                             <i class="fas fa-arrow-alt-circle-down me-2"></i> Lihat Aplikasi
@@ -1210,7 +1213,10 @@
                             </div>
                             <h5 class="card-title">Screening Diabetes</h5>
                             <p class="card-text">
-                                fitur untuk mengenali risiko diabetes secara cepat melalui serangkaian pertanyaan seputar faktor risiko seperti usia, riwayat keluarga, pola makan, dan aktivitas fisik. Hasil akan dikategorikan sebagai <strong>rendah</strong> , <strong>sedang</strong>, atau <strong>tinggi</strong> berdasarkan skor poin yang dihitung dari jawaban pengguna.
+                                fitur untuk mengenali risiko diabetes secara cepat melalui serangkaian pertanyaan
+                                seputar faktor risiko seperti usia, riwayat keluarga, pola makan, dan aktivitas fisik.
+                                Hasil akan dikategorikan sebagai <strong>rendah</strong> , <strong>sedang</strong>, atau
+                                <strong>tinggi</strong> berdasarkan skor poin yang dihitung dari jawaban pengguna.
                             </p>
                         </div>
                     </div>
@@ -1224,7 +1230,10 @@
                             </div>
                             <h5 class="card-title">GlucoCheck</h5>
                             <p class="card-text">
-                                fitur pemantauan risiko diabetes bulanan yang menggunakan Tes Gula Darah Puasa (GDP), yaitu pengecekan gula darah setelah puasa 8–12 jam, dikombinasikan dengan input data seperti riwayat keluarga, BMI, dan lainnya untuk memberikan prediksi risiko serta riwayat pemantauan secara berkala.
+                                fitur pemantauan risiko diabetes bulanan yang menggunakan Tes Gula Darah Puasa (GDP),
+                                yaitu pengecekan gula darah setelah puasa 8–12 jam, dikombinasikan dengan input data
+                                seperti riwayat keluarga, BMI, dan lainnya untuk memberikan prediksi risiko serta
+                                riwayat pemantauan secara berkala.
                             </p>
                         </div>
                     </div>
@@ -1238,7 +1247,9 @@
                             </div>
                             <h5 class="card-title">Glucozia AI</h5>
                             <p class="card-text">
-                                Asisten AI cerdas untuk edukasi interaktif yang siap 24/7, memberikan panduan personal seputar diabetes, analisis kondisi kesehatan, serta rekomendasi nutrisi yang disesuaikan melalui chat interaktif dan responsif.
+                                Asisten AI cerdas untuk edukasi interaktif yang siap 24/7, memberikan panduan personal
+                                seputar diabetes, analisis kondisi kesehatan, serta rekomendasi nutrisi yang disesuaikan
+                                melalui chat interaktif dan responsif.
                             </p>
                         </div>
                     </div>
@@ -1480,7 +1491,8 @@
                                     <i class="fas fa-brain me-2" style="color: #1A998E;"></i>Akses Pengguna Umum
                                 </small>
                             </div>
-                            <a href="https://glucozia-ai.vercel.app/" target="_blank" class="btn-glow mt-auto align-self-center">
+                            <a href="https://glucozia-ai.vercel.app/" target="_blank"
+                                class="btn-glow mt-auto align-self-center">
                                 <span class="btn-glow-content">
                                     <i class="fas fa-external-link-square-alt me-2"></i>Coba Sekarang
                                 </span>
@@ -1732,7 +1744,7 @@
             });
             return false;
         }
-        
+
         document.addEventListener('DOMContentLoaded', function () {
             // Tombol Akses Web
             document.getElementById('webAccessBtn').addEventListener('click', function (e) {
@@ -1751,15 +1763,74 @@
             // Tombol Unduh Mobile
             document.getElementById('mobileDownloadBtn').addEventListener('click', function (e) {
                 e.preventDefault();
+
+                // First confirmation alert
                 Swal.fire({
-                    title: 'Informasi',
-                    text: 'Aplikasi mobile masih tahap pengembangan',
-                    icon: 'info',
+                    title: 'Konfirmasi Download',
+                    text: 'Anda akan mengunduh aplikasi GlucoWise versi mobile. Lanjutkan?',
+                    icon: 'question',
                     iconColor: '#1a998e',
-                    confirmButtonText: '<i class="fas fa-check-circle me-2"></i>Mengerti',
-                    confirmButtonColor: '#1a998e'
+                    showCancelButton: true,
+                    confirmButtonText: '<i class="fas fa-download me-2"></i>Download',
+                    cancelButtonText: '<i class="fas fa-times me-2"></i>Batal',
+                    confirmButtonColor: '#1a998e',
+                    cancelButtonColor: '#6c757d',
+                    reverseButtons: true
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Password input form
+                        Swal.fire({
+                            title: 'Masukkan Password',
+                            html: `
+                        <p style="font-size: 0.9rem; color: #6c757d;">Silakan masukkan password untuk mengunduh aplikasi</p>
+                        <input type="password" id="passwordInput" class="swal2-input" placeholder="Password">
+                    `,
+                            icon: 'info',
+                            iconColor: '#1a998e',
+                            showCancelButton: true,
+                            confirmButtonText: '<i class="fas fa-check-circle me-2"></i>Submit',
+                            cancelButtonText: '<i class="fas fa-times me-2"></i>Batal',
+                            confirmButtonColor: '#1a998e',
+                            cancelButtonColor: '#6c757d',
+                            reverseButtons: true,
+                            preConfirm: () => {
+                                const password = document.getElementById('passwordInput').value;
+                                if (!password) {
+                                    Swal.showValidationMessage('Password tidak boleh kosong');
+                                }
+                                return password;
+                            }
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                const enteredPassword = result.value;
+                                const correctPassword = "E11DIABETES";
+
+                                if (enteredPassword === correctPassword) {
+                                    // Password correct - initiate download
+                                    window.location.href = 'mobile/GlucoWise.apk';
+
+                                    // Optional: Show success message
+                                    Swal.fire({
+                                        title: 'Download Dimulai',
+                                        text: 'Aplikasi GlucoWise sedang diunduh...',
+                                        icon: 'success',
+                                        iconColor: '#1a998e',
+                                        confirmButtonColor: '#1a998e'
+                                    });
+                                } else {
+                                    // Password incorrect
+                                    Swal.fire({
+                                        title: 'Password Salah',
+                                        text: 'Password yang Anda masukkan tidak valid. Silakan coba lagi.',
+                                        icon: 'error',
+                                        iconColor: '#dc3545',
+                                        confirmButtonColor: '#1a998e'
+                                    });
+                                }
+                            }
+                        });
+                    }
                 });
-                return false;
             });
         });
 
@@ -1853,6 +1924,70 @@
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Ambil semua section yang memiliki ID
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Fungsi untuk mengupdate active nav link
+            function updateActiveNav() {
+                let currentSection = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.offsetHeight;
+
+                    if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${currentSection}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+
+            // Jalankan saat scroll dan saat load
+            window.addEventListener('scroll', updateActiveNav);
+            window.addEventListener('load', updateActiveNav);
+
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+
+                        // Update active nav link setelah scroll selesai
+                        setTimeout(updateActiveNav, 1000);
+                    }
+                });
+            });
+
+            // Close mobile menu when clicking a link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const toggler = document.querySelector('.navbar-toggler');
+                        toggler.click(); // This will close the menu
+                    }
+                });
+            });
+        });
     </script>
 </body>
 
