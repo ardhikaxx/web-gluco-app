@@ -1419,7 +1419,8 @@
                 <div class="col-lg-10">
                     <div class="video-container shadow-lg rounded-5 overflow-hidden">
                         <div class="ratio ratio-16x9">
-                            <iframe src="https://www.youtube.com/embed/wZauCi4wE8k?si=0ZYsITzRm79_XcIM" class="rounded-5" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+                            <iframe src="https://www.youtube.com/embed/wZauCi4wE8k?si=0ZYsITzRm79_XcIM"
+                                class="rounded-5" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -1676,53 +1677,85 @@
     </section>
 
     <!-- FOOTER -->
-    <footer>
+    <footer class="bg-dark text-white py-4">
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 mb-5 mb-lg-0">
-                    <a href="#" class="footer-logo text-decoration-none">GlucoWise</a>
+                <!-- Logo and Description -->
+                <div class="col-md-4 mb-4">
+                    <h2 class="fw-bold mb-3 text-white">GlucoWise</h2>
                     <p class="text-white">Aplikasi Manajemen Data dan Chat Bot Edukasi Diabetes berbasis Website dan
                         Mobile.</p>
                 </div>
-                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-                    <div class="footer-links">
-                        <h5>Menu</h5>
-                        <ul>
-                            <li><a href="#home">Beranda</a></li>
-                            <li><a href="https://glucozia-ai.vercel.app/" target="_blank">Glucozia AI</a></li>
-                            <li><a href="#features">Fitur</a></li>
-                            <li><a href="#about">Tentang</a></li>
-                            <li><a href="#demo">Demo Aplikasi</a></li>
-                            <li><a href="#gallery">Tampilan</a></li>
-                            <li><a href="#team">Tim</a></li>
-                            <li><a href="#download">Lihat Aplikasi</a></li>
-                        </ul>
+
+                <!-- Quick Links -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold mb-3 text-white">Menu Utama</h4>
+                    <div class="d-flex flex-wrap">
+                        <div class="me-4 mb-2">
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="#home" class="text-white text-decoration-none">
+                                        <i class="fas fa-home me-2"></i>Beranda
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#features" class="text-white text-decoration-none">
+                                        <i class="fas fa-star me-2"></i>Fitur
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#about" class="text-white text-decoration-none">
+                                        <i class="fas fa-info-circle me-2"></i>Tentang
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#demo" class="text-white text-decoration-none">
+                                        <i class="fas fa-play-circle me-2"></i>Demo Aplikasi
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="list-unstyled">
+                                <li class="mb-2">
+                                    <a href="#gallery" class="text-white text-decoration-none">
+                                        <i class="fas fa-images me-2"></i>Tampilan
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#team" class="text-white text-decoration-none">
+                                        <i class="fas fa-users me-2"></i>Tim
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="#download" class="text-white text-decoration-none">
+                                        <i class="fas fa-mobile-alt me-2"></i>Lihat Aplikasi
+                                    </a>
+                                </li>
+                                <li class="mb-2">
+                                    <a href="https://glucozia-ai.vercel.app/" target="_blank"
+                                        class="text-white text-decoration-none">
+                                        <i class="fas fa-brain me-2"></i>Glucozia AI
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
-                    <div class="footer-links">
-                        <h5>Dukungan</h5>
-                        <ul>
-                            <li><a href="#">Pusat Bantuan</a></li>
-                            <li><a href="#">FAQ</a></li>
-                            <li><a href="#">Kebijakan Privasi</a></li>
-                            <li><a href="#">Syarat & Ketentuan</a></li>
-                            <li><a href="#">Hubungi Kami</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="footer-links">
-                        <h5>Kontak</h5>
-                        <ul class=" text-white">
-                            <li><i class="fas fa-phone me-2"></i>0859-3364-8537</li>
-                            <li><i class="fas fa-envelope me-2"></i>ardhikayanuar58@gmail.com</li>
-                        </ul>
-                    </div>
+
+                <!-- Contact -->
+                <div class="col-md-4 mb-4">
+                    <h4 class="fw-bold mb-3 text-white">Kontak</h4>
+                    <ul class="list-unstyled text-white">
+                        <li class="mb-2"><i class="fas fa-phone me-2"></i>0859-3364-8537</li>
+                        <li><i class="fas fa-envelope me-2"></i>ardhikayanuar58@gmail.com</li>
+                    </ul>
                 </div>
             </div>
-            <div class="copyright text-center">
-                <p class="mb-0">© 2025 GlucoWise. All rights reserved.</p>
+
+            <!-- Copyright -->
+            <div class="border-top border-secondary pt-3 mt-3 text-center">
+                <p class="text-white mb-0 small">© 2025 GlucoWise. All rights reserved.</p>
             </div>
         </div>
     </footer>
