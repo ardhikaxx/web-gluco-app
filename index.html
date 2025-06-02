@@ -1837,10 +1837,8 @@
                                 const correctPassword = "E11DIABETES";
 
                                 if (enteredPassword === correctPassword) {
-                                    // Password correct - initiate download
                                     window.location.href = 'mobile/GlucoWise.apk';
 
-                                    // Optional: Show success message
                                     Swal.fire({
                                         title: 'Download Dimulai',
                                         text: 'Aplikasi GlucoWise sedang diunduh...',
@@ -1849,7 +1847,6 @@
                                         confirmButtonColor: '#1a998e'
                                     });
                                 } else {
-                                    // Password incorrect
                                     Swal.fire({
                                         title: 'Password Salah',
                                         text: 'Password yang Anda masukkan tidak valid. Silakan coba lagi.',
