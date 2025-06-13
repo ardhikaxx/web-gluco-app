@@ -835,48 +835,167 @@
             border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
+        /* Team Section Styles */
+        .team-section {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 80px 0;
+        }
+
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background: var(--primary-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
         /* Team Card Styles */
         .team-card {
             border: none;
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            text-align: center;
-            padding: 30px 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             background-color: white;
             height: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            opacity: 0;
+            transition: all 0.4s ease;
+            z-index: -1;
         }
 
         .team-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
 
-        .team-card img {
-            width: 150px;
-            height: 150px;
+        .team-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .team-card-img {
+            position: relative;
+            padding: 30px 0 0 0;
+            text-align: center;
+        }
+
+        .team-card-img img {
+            width: 180px;
+            height: 180px;
             object-fit: cover;
             border-radius: 50%;
-            border: 5px solid var(--primary-light);
-            margin-bottom: 20px;
-            transition: all 0.3s ease;
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
         }
 
-        .team-card:hover img {
-            border-color: var(--primary-color);
+        .team-card:hover .team-card-img img {
+            transform: scale(1.05);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .social-links {
+            position: absolute;
+            bottom: -20px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .team-card:hover .social-links {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .team-card-body {
+            padding: 20px 25px 30px;
+            text-align: center;
         }
 
         .team-card h5 {
-            font-family: 'Darumadrop One', cursive;
-            color: var(--dark-color);
-            margin-bottom: 5px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
         }
 
-        .team-card p {
-            color: #666;
-            margin-bottom: 5px;
+        .team-card:hover h5 {
+            color: var(--primary-color);
+        }
+
+        .team-role {
+            display: inline-block;
             font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: rgba(70, 130, 180, 0.1);
+            padding: 5px 15px;
+            border-radius: 30px;
+            margin-bottom: 15px;
+        }
+
+        .team-info {
+            margin-top: 5px;
+        }
+
+        .team-info p {
+            color: #666;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-info i {
+            color: var(--primary-color);
+        }
+
+        /* Animation delays for staggered effect */
+        .animate__delay-1s {
+            animation-delay: 0.2s;
+        }
+
+        .animate__delay-2s {
+            animation-delay: 0.4s;
         }
 
         .social-icon {
@@ -1200,98 +1319,104 @@
     </section>
 
     <!-- GRAFIK DIABETES PADA INDONESIA 2025 -->
-<section class="section bg-light py-5">
-    <div class="container">
-        <!-- Header Section -->
-        <div class="row mb-5">
-            <div class="col-lg-10 mx-auto text-center">
-                <h2 class="section-title display-5 fw-bold mb-3">Proyeksi Diabetes di Indonesia 2025</h2>
+    <section class="section bg-light py-5">
+        <div class="container">
+            <!-- Header Section -->
+            <div class="row mb-5">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h2 class="section-title display-5 fw-bold mb-3">Proyeksi Diabetes di Indonesia 2025</h2>
+                </div>
             </div>
-        </div>
 
-        <!-- Main Data Visualization -->
-        <div class="row g-4">
-            <!-- Predicted Cases Card -->
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-lg h-100">
-                    <div class="card-header bg-white border-bottom d-flex justify-content-between align-items-center">
-                        <h5 class="card-title mb-0">Proyeksi Jumlah Penderita</h5>
-                        <span class="badge bg-danger">Data Aktual 2025</span>
-                    </div>
-                    <div class="card-body">
-                        <div class="row align-items-center">
-                            <div class="col-md-5 text-center">
-                                <div class="display-4 fw-bold text-danger">19,5jt</div>
-                                <p class="text-muted mt-3">Total Penderita <br> (usia 20-79 tahun)</p>
-                                <div class="mt-1">
-                                    <span class="badge bg-warning text-dark"><i class="bi bi-arrow-up"></i> 73% Tidak Terdiagnosis</span>
+            <!-- Main Data Visualization -->
+            <div class="row g-4">
+                <!-- Predicted Cases Card -->
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-lg h-100">
+                        <div
+                            class="card-header bg-white border-bottom d-flex justify-content-between align-items-center">
+                            <h5 class="card-title mb-0">Proyeksi Jumlah Penderita</h5>
+                            <span class="badge bg-danger">Data Aktual 2025</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-5 text-center">
+                                    <div class="display-4 fw-bold text-danger">19,5jt</div>
+                                    <p class="text-muted mt-3">Total Penderita <br> (usia 20-79 tahun)</p>
+                                    <div class="mt-1">
+                                        <span class="badge bg-warning text-dark"><i class="bi bi-arrow-up"></i> 73%
+                                            Tidak Terdiagnosis</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <canvas id="projectionChart" height="400" width="500"></canvas>
                                 </div>
                             </div>
-                            <div class="col-md-7">
-                                <canvas id="projectionChart" height="400" width="500"></canvas>
-                            </div>
                         </div>
-                    </div>
-                    <div class="card-footer bg-transparent">
-                        <small class="text-muted">Sumber: 
-                            <a href="https://diabetesatlas.org/id/" target="_blank" class="text-decoration-underline">IDF Diabetes Atlas 2025</a>, 
-                            <a href="https://sehatnegeriku.kemkes.go.id/baca/blog/20240110/5344736/saatnya-mengatur-si-manis/" target="_blank" class="text-decoration-underline">Kemenkes RI 2024</a>
-                        </small>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">Sumber:
+                                <a href="https://diabetesatlas.org/id/" target="_blank"
+                                    class="text-decoration-underline">IDF Diabetes Atlas 2025</a>,
+                                <a href="https://sehatnegeriku.kemkes.go.id/baca/blog/20240110/5344736/saatnya-mengatur-si-manis/"
+                                    target="_blank" class="text-decoration-underline">Kemenkes RI 2024</a>
+                            </small>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Prevalence Rate Card -->
-            <div class="col-lg-6">
-                <div class="card border-0 shadow-lg h-100">
-                    <div class="card-header bg-white border-bottom">
-                        <h5 class="card-title mb-0">Tren Prevalensi Diabetes</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <canvas id="trendChart" height="250"></canvas>
-                            </div>
-                            <div class="col-md-5">
-                                <ul class="list-unstyled">
-                                    <li class="mb-3">
-                                        <span class="d-flex align-items-center">
-                                            <span class="legend-indicator bg-danger me-2"></span>
-                                            <span>20-39 tahun</span>
-                                            <span class="ms-auto fw-bold">7.3%</span>
-                                        </span>
-                                        <small class="text-muted">(+2.5% dari 2020)</small>
-                                    </li>
-                                    <li class="mb-3">
-                                        <span class="d-flex align-items-center">
-                                            <span class="legend-indicator bg-warning me-2"></span>
-                                            <span>40-59 tahun</span>
-                                            <span class="ms-auto fw-bold">16.3%</span>
-                                        </span>
-                                        <small class="text-muted">Peningkatan tertinggi</small>
-                                    </li>
-                                    <li class="mb-3">
-                                        <span class="d-flex align-items-center">
-                                            <span class="legend-indicator bg-primary me-2"></span>
-                                            <span>60-79 tahun</span>
-                                            <span class="ms-auto fw-bold">21.8%</span>
-                                        </span>
-                                    </li>
-                                </ul>
+                <!-- Prevalence Rate Card -->
+                <div class="col-lg-6">
+                    <div class="card border-0 shadow-lg h-100">
+                        <div class="card-header bg-white border-bottom">
+                            <h5 class="card-title mb-0">Tren Prevalensi Diabetes</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <canvas id="trendChart" height="250"></canvas>
+                                </div>
+                                <div class="col-md-5">
+                                    <ul class="list-unstyled">
+                                        <li class="mb-3">
+                                            <span class="d-flex align-items-center">
+                                                <span class="legend-indicator bg-danger me-2"></span>
+                                                <span>20-39 tahun</span>
+                                                <span class="ms-auto fw-bold">7.3%</span>
+                                            </span>
+                                            <small class="text-muted">(+2.5% dari 2020)</small>
+                                        </li>
+                                        <li class="mb-3">
+                                            <span class="d-flex align-items-center">
+                                                <span class="legend-indicator bg-warning me-2"></span>
+                                                <span>40-59 tahun</span>
+                                                <span class="ms-auto fw-bold">16.3%</span>
+                                            </span>
+                                            <small class="text-muted">Peningkatan tertinggi</small>
+                                        </li>
+                                        <li class="mb-3">
+                                            <span class="d-flex align-items-center">
+                                                <span class="legend-indicator bg-primary me-2"></span>
+                                                <span>60-79 tahun</span>
+                                                <span class="ms-auto fw-bold">21.8%</span>
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card-footer bg-transparent">
-                        <small class="text-muted">Sumber: 
-                            <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10914682/" target="_blank" class="text-decoration-underline">Studi Scientific Reports 2024</a>, 
-                            <a href="https://sehatnegeriku.kemkes.go.id/" target="_blank" class="text-decoration-underline">Kemenkes RI</a>
-                        </small>
+                        <div class="card-footer bg-transparent">
+                            <small class="text-muted">Sumber:
+                                <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10914682/" target="_blank"
+                                    class="text-decoration-underline">Studi Scientific Reports 2024</a>,
+                                <a href="https://sehatnegeriku.kemkes.go.id/" target="_blank"
+                                    class="text-decoration-underline">Kemenkes RI</a>
+                            </small>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- ABOUT SECTION -->
     <section class="section bg-light" id="about">
@@ -1723,77 +1848,97 @@
     </section>
 
     <!-- TEAM SECTION -->
-    <section class="section" id="team">
+    <section class="section team-section" id="team">
         <div class="container">
-            <h2 class="section-title animate__animated animate__fadeIn">Tim Pengembang</h2>
+            <div class="section-header text-center mb-5">
+                <h2 class="section-title">Tim Pengembangan</h2>
+                <p class="section-subtitle text-muted">Kenali
+                    anggota tim berbakat di balik kesuksesan kami</p>
+            </div>
+
             <div class="row justify-content-center">
                 <!-- Anggota Tim 1 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeInUp">
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <div class="team-card">
-                        <img src="./assets/dev/dhika.jpg" alt="Foto Tim" class="mx-auto mb-3">
-                        <h5>Yanuar Ardhika Rahmadhani Ubaidillah</h5>
-                        <h6 class="mb-1 text-muted fw-bold">Mobile Developer</h6>
-                        <p>NIM: E41220665</p>
-                        <p>Program Studi: Teknik Informatika</p>
-                        <span class="ig-username">
-                            <i class="fab fa-instagram me-1"></i> @ardhxkaa_
-                        </span>
+                        <div class="team-card-img">
+                            <img src="./assets/dev/dhika.jpg" alt="Yanuar Ardhika" class="img-fluid">
+                        </div>
+                        <div class="team-card-body">
+                            <h5>Yanuar Ardhika Rahmadhani Ubaidillah</h5>
+                            <span class="team-role">Mobile Developer</span>
+                            <div class="team-info">
+                                <p><i class="fas fa-graduation-cap me-2"></i>Teknik Informatika</p>
+                                <p><i class="fas fa-id-card me-2"></i>E41220665</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Anggota Tim 2 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeInUp">
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <div class="team-card">
-                        <img src="./assets/dev/ariz.png" alt="Foto Tim" class="mx-auto mb-3">
-                        <h5>Ariz Saputra</h5>
-                        <h6 class="mb-1 text-muted fw-bold">Web Developer</h6>
-                        <p>NIM: E41220090</p>
-                        <p>Program Studi: Teknik Informatika</p>
-                        <span class="ig-username">
-                            <i class="fab fa-instagram me-1"></i> @arizsaputra_as
-                        </span>
+                        <div class="team-card-img">
+                            <img src="./assets/dev/ariz.png" alt="Ariz Saputra" class="img-fluid">
+                        </div>
+                        <div class="team-card-body">
+                            <h5>Ariz Saputra</h5>
+                            <span class="team-role">Web Developer</span>
+                            <div class="team-info">
+                                <p><i class="fas fa-graduation-cap me-2"></i>Teknik Informatika</p>
+                                <p><i class="fas fa-id-card me-2"></i>E41220090</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Anggota Tim 3 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeInUp">
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <div class="team-card">
-                        <img src="./assets/dev/rafika.png" alt="Foto Tim" class="mx-auto mb-3">
-                        <h5>Rafika Dwi Shefira</h5>
-                        <h6 class="mb-1 text-muted fw-bold">Quality Assurance</h6>
-                        <p>NIM: E41220791</p>
-                        <p>Program Studi: Teknik Informatika</p>
-                        <span class="ig-username">
-                            <i class="fab fa-instagram me-1"></i> @_rafikadw
-                        </span>
+                        <div class="team-card-img">
+                            <img src="./assets/dev/rafika.png" alt="Rafika Dwi Shefira" class="img-fluid">
+                        </div>
+                        <div class="team-card-body">
+                            <h5>Rafika Dwi Shefira</h5>
+                            <span class="team-role">Quality Assurance</span>
+                            <div class="team-info">
+                                <p><i class="fas fa-graduation-cap me-2"></i>Teknik Informatika</p>
+                                <p><i class="fas fa-id-card me-2"></i>E41220791</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Anggota Tim 4 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeInUp">
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <div class="team-card">
-                        <img src="./assets/dev/firman.png" alt="Foto Tim" class="mx-auto mb-3">
-                        <h5>Firmansyah Rachman P</h5>
-                        <h6 class="mb-1 text-muted fw-bold">Web Developer</h6>
-                        <p>NIM: E41220247</p>
-                        <p>Program Studi: Teknik Informatika</p>
-                        <span class="ig-username">
-                            <i class="fab fa-instagram me-1"></i> @firmansyahrp._
-                        </span>
+                        <div class="team-card-img">
+                            <img src="./assets/dev/firman.png" alt="Firmansyah Rachman P" class="img-fluid">
+                        </div>
+                        <div class="team-card-body">
+                            <h5>Firmansyah Rachman P</h5>
+                            <span class="team-role">Web Developer</span>
+                            <div class="team-info">
+                                <p><i class="fas fa-graduation-cap me-2"></i>Teknik Informatika</p>
+                                <p><i class="fas fa-id-card me-2"></i>E41220247</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Anggota Tim 5 -->
-                <div class="col-12 col-md-6 col-lg-4 mb-4 animate__animated animate__fadeInUp">
+                <div class="col-12 col-md-6 col-lg-4 mb-4">
                     <div class="team-card">
-                        <img src="./assets/dev/insan.png" alt="Foto Tim" class="mx-auto mb-3">
-                        <h5>Insan Hidayah</h5>
-                        <h6 class="mb-1 text-muted fw-bold">UI/UX Designer</h6>
-                        <p>NIM: E41220849</p>
-                        <p>Program Studi: Teknik Informatika</p>
-                        <span class="ig-username">
-                            <i class="fab fa-instagram me-1"></i> @insanhidayah
-                        </span>
+                        <div class="team-card-img">
+                            <img src="./assets/dev/insan.png" alt="Insan Hidayah" class="img-fluid">
+                        </div>
+                        <div class="team-card-body">
+                            <h5>Insan Hidayah</h5>
+                            <span class="team-role">UI/UX Designer</span>
+                            <div class="team-info">
+                                <p><i class="fas fa-graduation-cap me-2"></i>Teknik Informatika</p>
+                                <p><i class="fas fa-id-card me-2"></i>E41220849</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -2142,98 +2287,98 @@
         });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // Projection Chart (Updated with actual 2024 data)
-        const projectionCtx = document.getElementById('projectionChart').getContext('2d');
-        new Chart(projectionCtx, {
-            type: 'line',
-            data: {
-                labels: ['2018', '2021', '2023', '2024', '2025*'],
-                datasets: [{
-                    label: 'Jumlah Penderita (juta)',
-                    data: [10.3, 19.5, 19.5, 19.5, 20.4],
-                    borderColor: '#dc3545',
-                    backgroundColor: 'rgba(220, 53, 69, 0.1)',
-                    tension: 0.3,
-                    fill: true,
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return context.parsed.y.toFixed(1) + ' juta penderita';
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Projection Chart (Updated with actual 2024 data)
+            const projectionCtx = document.getElementById('projectionChart').getContext('2d');
+            new Chart(projectionCtx, {
+                type: 'line',
+                data: {
+                    labels: ['2018', '2021', '2023', '2024', '2025*'],
+                    datasets: [{
+                        label: 'Jumlah Penderita (juta)',
+                        data: [10.3, 19.5, 19.5, 19.5, 20.4],
+                        borderColor: '#dc3545',
+                        backgroundColor: 'rgba(220, 53, 69, 0.1)',
+                        tension: 0.3,
+                        fill: true,
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return context.parsed.y.toFixed(1) + ' juta penderita';
+                                }
                             }
                         }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: false,
-                        min: 0,
-                        max: 25,
-                        ticks: {
-                            callback: function(value) {
-                                return value + 'jt';
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            min: 0,
+                            max: 25,
+                            ticks: {
+                                callback: function (value) {
+                                    return value + 'jt';
+                                }
                             }
                         }
                     }
                 }
-            }
-        });
+            });
 
-        // Trend Chart (Prevalence)
-        const trendCtx = document.getElementById('trendChart').getContext('2d');
-        new Chart(trendCtx, {
-            type: 'bar',
-            data: {
-                labels: ['2018', '2021', '2023', '2024', '2025*'],
-                datasets: [{
-                    label: 'Prevalensi (%)',
-                    data: [8.5, 10.6, 11.7, 11.3, 12.1],
-                    backgroundColor: [
-                        'rgba(220, 53, 69, 0.7)',
-                        'rgba(220, 53, 69, 0.7)',
-                        'rgba(220, 53, 69, 0.7)',
-                        'rgba(220, 53, 69, 0.7)',
-                        'rgba(220, 53, 69, 1)'
-                    ],
-                    borderColor: '#dc3545',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false },
-                    tooltip: {
-                        callbacks: {
-                            label: function(context) {
-                                return context.parsed.y + '% prevalensi';
+            // Trend Chart (Prevalence)
+            const trendCtx = document.getElementById('trendChart').getContext('2d');
+            new Chart(trendCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['2018', '2021', '2023', '2024', '2025*'],
+                    datasets: [{
+                        label: 'Prevalensi (%)',
+                        data: [8.5, 10.6, 11.7, 11.3, 12.1],
+                        backgroundColor: [
+                            'rgba(220, 53, 69, 0.7)',
+                            'rgba(220, 53, 69, 0.7)',
+                            'rgba(220, 53, 69, 0.7)',
+                            'rgba(220, 53, 69, 0.7)',
+                            'rgba(220, 53, 69, 1)'
+                        ],
+                        borderColor: '#dc3545',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+                                    return context.parsed.y + '% prevalensi';
+                                }
                             }
                         }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        max: 15,
-                        ticks: {
-                            callback: function(value) {
-                                return value + '%';
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 15,
+                            ticks: {
+                                callback: function (value) {
+                                    return value + '%';
+                                }
                             }
                         }
                     }
                 }
-            }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>
