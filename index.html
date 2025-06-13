@@ -2049,14 +2049,50 @@
             // Tombol Akses Web
             document.getElementById('webAccessBtn').addEventListener('click', function (e) {
                 e.preventDefault();
+
                 Swal.fire({
                     title: 'Akses Terbatas',
                     text: 'Hak akses website ini hanya untuk tenaga kesehatan',
                     icon: 'info',
                     iconColor: '#1a998e',
-                    confirmButtonText: '<i class="fas fa-check-circle me-2"></i>Mengerti',
-                    confirmButtonColor: '#1a998e'
+                    showCancelButton: true,
+                    confirmButtonText: '<i class="fas fa-check-circle me-2"></i>Ya, Saya Tenaga Kesehatan',
+                    cancelButtonText: '<i class="fas fa-times-circle me-2"></i>Mengerti',
+                    confirmButtonColor: '#1a998e',
+                    cancelButtonColor: '#6c757d'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Swal.fire({
+                            title: 'Masukkan Password',
+                            input: 'password',
+                            inputAttributes: {
+                                autocapitalize: 'off',
+                                autocorrect: 'off'
+                            },
+                            showCancelButton: true,
+                            confirmButtonText: 'Submit',
+                            confirmButtonColor: '#1a998e',
+                            showLoaderOnConfirm: true,
+                            preConfirm: (password) => {
+                                if (password === 'E11DIABETES') {
+                                    window.open('http://36.93.189.113:8081/', '_blank');
+                                } else {
+                                    Swal.showValidationMessage('Password salah');
+                                }
+                            },
+                            allowOutsideClick: () => !Swal.isLoading()
+                        });
+                    } else if (result.dismiss === Swal.DismissReason.cancel) {
+                        Swal.fire({
+                            title: 'Terima Kasih',
+                            text: 'Anda dapat menghubungi tenaga kesehatan untuk informasi lebih lanjut',
+                            icon: 'info',
+                            iconColor: '#1a998e',
+                            confirmButtonColor: '#1a998e'
+                        });
+                    }
                 });
+
                 return false;
             });
 
@@ -2064,7 +2100,6 @@
             document.getElementById('mobileDownloadBtn').addEventListener('click', function (e) {
                 e.preventDefault();
 
-                // First confirmation alert
                 Swal.fire({
                     title: 'Konfirmasi Download',
                     text: 'Anda akan mengunduh aplikasi GlucoWise versi mobile. Lanjutkan?',
@@ -2078,7 +2113,6 @@
                     reverseButtons: true
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        // Password input form
                         Swal.fire({
                             title: 'Masukkan Password',
                             html: `
